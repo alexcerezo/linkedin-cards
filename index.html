@@ -195,30 +195,16 @@
 
         <div class="content">
             <div class="section">
-                <h2>1. Pega la URL o código del iframe</h2>
-                <textarea id="iframeCode" placeholder='Opción 1: URL de la publicación
-https://www.linkedin.com/posts/usuario_activity-1234567890-abcd
-
-Opción 2: Código del iframe
-<iframe src="https://www.linkedin.com/embed/feed/update/..." height="..." width="..." frameborder="0" allowfullscreen="" title="..."></iframe>'></textarea>
+                <h2>1. Pega el código del iframe</h2>
+                <textarea id="iframeCode" placeholder='<iframe src="https://www.linkedin.com/embed/feed/update/..." height="..." width="..." frameborder="0" allowfullscreen="" title="..."></iframe>'></textarea>
                 
                 <div class="button-group">
-                    <button onclick="processInput()">🚀 Procesar</button>
-                    <button onclick="openInNewTab()">🔗 Abrir en Nueva Pestaña</button>
+                    <button onclick="renderIframe()">� Renderizar Iframe</button>
+                    <button onclick="extractData()">� Extraer Datos</button>
                     <button onclick="clearAll()">🗑️ Limpiar</button>
                 </div>
 
                 <div id="message"></div>
-                
-                <div style="margin-top: 20px; padding: 15px; background: #fff3cd; border-left: 4px solid #ffc107; border-radius: 8px;">
-                    <strong>💡 Cómo obtener la URL:</strong>
-                    <ol style="margin: 10px 0 0 20px; line-height: 1.8;">
-                        <li>Ve a la publicación en LinkedIn</li>
-                        <li>Haz clic en los 3 puntos (...) de la publicación</li>
-                        <li>Selecciona "Copiar enlace de la publicación"</li>
-                        <li>Pégala aquí arriba</li>
-                    </ol>
-                </div>
             </div>
 
             <div class="section">
@@ -238,111 +224,30 @@ Opción 2: Código del iframe
 
     <script>
         let currentIframe = null;
-        let currentUrl = null;
 
-        function processInput() {
-            const input = document.getElementById('iframeCode').value.trim();
+        function renderIframe() {
+            const code = document.getElementById('iframeCode').value.trim();
             const container = document.getElementById('iframeContainer');
+            const messageDiv = document.getElementById('message');
 
-            if (!input) {
-                showMessage('Por favor, pega la URL o código del iframe primero', 'error');
+            if (!code) {
+                showMessage('Por favor, pega el código del iframe primero', 'error');
                 return;
             }
 
-            // Detectar si es una URL o código HTML
-            if (input.startsWith('http')) {
-                processUrl(input);
-            } else if (input.includes('<iframe')) {
-                processIframeCode(input);
-            } else {
-                showMessage('Por favor, pega una URL válida o código de iframe', 'error');
-            }
-        }
-
-        function processUrl(url) {
-            currentUrl = url;
-            const container = document.getElementById('iframeContainer');
-            
-            // Extraer información de la URL
-            const urlData = parseLinkedInUrl(url);
-        function extractData() {
-            showMessage('⚠️ Debido a las restricciones de seguridad de LinkedIn (X-Frame-Options), no es posible extraer el contenido del iframe programáticamente. La información mostrada proviene del análisis de la URL.', 'error');
-        }   const srcMatch = code.match(/src=["']([^"']+)["']/);
-            if (srcMatch) {
-                currentUrl = srcMatch[1];
-                const urlData = parseLinkedInUrl(currentUrl);
-                displayResults(urlData);
-            }
-            
-            // Intentar renderizar el iframe
+            // Limpiar contenedor
             container.innerHTML = code;
             currentIframe = container.querySelector('iframe');
 
             if (currentIframe) {
+                // Ajustar tamaño del iframe
                 currentIframe.style.width = '100%';
                 currentIframe.style.minHeight = '400px';
                 currentIframe.style.border = 'none';
                 
-                container.innerHTML += `
-                    <p style="margin-top: 10px; color: #666; font-size: 0.9em;">
-                        ℹ️ Si el iframe muestra "conexión rechazada", LinkedIn está bloqueando el contenido.
-                    </p>
-                `;
-                
-                showMessage('Iframe procesado. Si no carga, LinkedIn está bloqueando el acceso por seguridad.', 'success');
-            }
-        }
-
-        function convertToEmbedUrl(url) {
-            // Convertir URL normal de LinkedIn a URL de embed
-            // https://www.linkedin.com/posts/usuario_activity-123456-abcd
-            // -> https://www.linkedin.com/embed/feed/update/urn:li:share:123456
-            
-            const activityMatch = url.match(/activity[:-](\d+)/);
-            if (activityMatch) {
-                const activityId = activityMatch[1];
-                return `https://www.linkedin.com/embed/feed/update/urn:li:share:${activityId}`;
-            }
-            
-            return null;
-        }
-
-        function parseLinkedInUrl(url) {
-            const data = {
-                'URL Original': url,
-                'Tipo': 'Publicación de LinkedIn',
-            };
-
-            // Extraer nombre de usuario
-            const userMatch = url.match(/linkedin\.com\/(?:posts|in)\/([^\/\?_]+)/);
-            if (userMatch) {
-                data['Usuario'] = userMatch[1];
-                data['Perfil del Usuario'] = `https://www.linkedin.com/in/${userMatch[1]}`;
-            }
-
-            // Extraer ID de actividad
-            const activityMatch = url.match(/activity[:-](\d+)/);
-            if (activityMatch) {
-                data['Activity ID'] = activityMatch[1];
-                data['URN'] = `urn:li:share:${activityMatch[1]}`;
-                data['URL de Embed'] = `https://www.linkedin.com/embed/feed/update/urn:li:share:${activityMatch[1]}`;
-            }
-
-            // Extraer parámetros adicionales
-            const urlObj = new URL(url);
-            if (urlObj.searchParams.toString()) {
-                data['Parámetros'] = urlObj.searchParams.toString();
-            }
-
-            return data;
-        }
-
-        function openInNewTab() {
-            if (currentUrl) {
-                window.open(currentUrl, '_blank');
-                showMessage('Publicación abierta en nueva pestaña. Puedes copiar la información manualmente desde ahí.', 'success');
+                showMessage('¡Iframe renderizado! Espera unos segundos a que cargue y luego haz clic en "Extraer Datos"', 'success');
             } else {
-                showMessage('Primero procesa una URL o iframe', 'error');
+                showMessage('No se detectó un iframe válido en el código pegado', 'error');
             }
         }
 
