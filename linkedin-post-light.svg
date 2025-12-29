@@ -1,28 +1,28 @@
-<svg fill="none" viewBox="0 0 600 720" width="600" height="720" xmlns="http://www.w3.org/2000/svg">
+<svg fill="none" viewBox="0 0 320 460" width="320" height="460" xmlns="http://www.w3.org/2000/svg">
   
   <foreignObject width="100%" height="100%">
     <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif; height: 100%; display: flex; align-items: center; justify-content: center;">
       
       <style>
         .linkedin-card {
-          --card-width: 550px;
-          --card-padding: 25px;
-          --line-height: 28px; 
+          --card-width: 300px;
+          --card-padding: 15px;
+          --line-height: 20px;
           
           display: flex;
           flex-direction: column;
           
-          /* TEMA CLARO: Fondo blanco y borde gris suave */
+          /* TEMA CLARO */
           background: white;
           border: 1px solid #e0e0e0;
           border-radius: 8px;
           overflow: hidden;
           width: var(--card-width);
-          height: 670px;
+          /* Altura reducida para eliminar espacio muerto */
+          height: 420px; 
           box-sizing: border-box;
           
-          /* Sombra suave para que destaque sobre el fondo blanco de GitHub */
-          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+          box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         .header-section {
@@ -34,13 +34,12 @@
 
         .text-section {
           padding: 0 var(--card-padding); 
-          margin-top: 15px;
-          
-          font-size: 18px;
-          /* TEMA CLARO: Texto oscuro */
+          margin-top: 12px;
+          font-size: 14px; 
           color: #191919;
-          
           line-height: var(--line-height);
+          
+          /* Mantenemos el espacio para 5 líneas para consistencia */
           max-height: calc(var(--line-height) * 5);
           min-height: calc(var(--line-height) * 5); 
           
@@ -54,28 +53,27 @@
         .gallery-container {
           position: relative;
           width: calc(var(--card-width) - (var(--card-padding) * 2));
-          height: 330px;
-          margin: var(--card-padding) auto 0 auto; 
-          /* TEMA CLARO: Fondo gris muy claro */
+          height: 180px; 
+          margin: 12px auto 0 auto; 
           background-color: #f3f3f3;
-          border-radius: 10px;
+          border-radius: 6px;
           overflow: hidden;
           flex-shrink: 0; 
         }
 
         .footer-section {
           padding: 0 var(--card-padding);
-          height: 60px;
-          /* TEMA CLARO: Fondo blanco */
+          height: 45px;
           background-color: white;
           display: flex;
           align-items: center;
           justify-content: space-between;
           flex-shrink: 0; 
+          /* margin-top: auto empuja el footer al fondo, pero ahora el fondo está más cerca */
           margin-top: auto; 
         }
 
-        /* ANIMACIONES (Idénticas) */
+        /* ANIMACIONES */
         .gallery-slide {
           position: absolute; top: 0; left: 0; width: 100%; height: 100%;
           background-size: cover; background-position: center;
@@ -92,7 +90,7 @@
       <div class="linkedin-card">
         
         <div class="header-section">
-          <div style="width: 64px; height: 64px; border-radius: 50%; background: #0a66c2; overflow: hidden; flex-shrink: 0; margin-right: 24px;">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: #0a66c2; overflow: hidden; flex-shrink: 0; margin-right: 12px;">
              <div style="width: 100%; height: 100%; 
                           background-image: url('${profile_picture}'); 
                           background-size: cover; background-position: center;">
@@ -100,12 +98,12 @@
           </div>
           
           <div style="display: flex; flex-direction: column; line-height: 1.2;">
-            <span style="font-weight: 700; font-size: 19px; color: #191919;">${name}</span>
-            <span style="font-size: 16px; color: #666;">${bio}</span>
-            <span style="font-size: 15px; color: #666; margin-top: 4px;">${time} • 🌐</span>
+            <span style="font-weight: 700; font-size: 15px; color: #191919;">${name}</span>
+            <span style="font-size: 13px; color: #666;">${bio}</span>
+            <span style="font-size: 12px; color: #666; margin-top: 2px;">${time} • 🌐</span>
           </div>
 
-          <div style="margin-left: auto; width: 64px; height: 64px; flex-shrink: 0;">
+          <div style="margin-left: auto; width: 24px; height: 24px; flex-shrink: 0;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0a66c2" width="100%" height="100%">
               <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.22-.44-2.12-1.54-2.12a1.6 1.6 0 00-1.58 1.14 2.17 2.17 0 00-.1 1.08V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.95 0 3.52 1.27 3.52 4v5.1z"/>
             </svg>
@@ -124,11 +122,11 @@
         </div>
 
         <div class="footer-section">
-           <div style="display: flex; align-items: center; font-size: 15px; color: #666;">
+           <div style="display: flex; align-items: center; font-size: 12px; color: #666;">
              <span style="margin-right: 6px;">👍 ❤️ 👏</span>
              <span>${reactions} </span>
            </div>
-           <div style="font-size: 15px; color: #666;">
+           <div style="font-size: 12px; color: #666;">
              ${comments}
            </div>
         </div>
