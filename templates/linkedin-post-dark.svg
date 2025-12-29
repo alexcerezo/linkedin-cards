@@ -1,0 +1,140 @@
+<svg fill="none" viewBox="0 0 320 460" width="320" height="460" xmlns="http://www.w3.org/2000/svg">
+  
+  <foreignObject width="100%" height="100%">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif; height: 100%; color: #FFFFFF; display: flex; align-items: center; justify-content: center;">
+      
+      <style>
+        .linkedin-card {
+          --card-width: 300px;
+          --card-padding: 15px;
+          --line-height: 20px;
+          
+          display: flex;
+          flex-direction: column;
+          
+          /* TEMA OSCURO */
+          background: #1D2226;
+          border: 1px solid #2F343A;
+          border-radius: 8px;
+          overflow: hidden;
+          width: var(--card-width);
+          /* Altura compacta */
+          height: 420px; 
+          box-sizing: border-box;
+          
+          /* Sombra suave oscura para profundidad */
+          box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .header-section {
+          padding: var(--card-padding) var(--card-padding) 0 var(--card-padding);
+          display: flex;
+          align-items: center; 
+          flex-shrink: 0; 
+        }
+
+        .text-section {
+          padding: 0 var(--card-padding); 
+          margin-top: 12px;
+          /* Fuente móvil */
+          font-size: 14px; 
+          /* TEMA OSCURO: Texto principal blanco */
+          color: #FFFFFF;
+          line-height: var(--line-height);
+          
+          max-height: calc(var(--line-height) * 5);
+          min-height: calc(var(--line-height) * 5); 
+          
+          display: -webkit-box;
+          -webkit-line-clamp: 5;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        .gallery-container {
+          position: relative;
+          width: calc(var(--card-width) - (var(--card-padding) * 2));
+          height: 180px; 
+          margin: 12px auto 0 auto; 
+          /* TEMA OSCURO: Placeholder oscuro */
+          background-color: #2F343A;
+          border-radius: 6px;
+          overflow: hidden;
+          flex-shrink: 0; 
+        }
+
+        .footer-section {
+          padding: 0 var(--card-padding);
+          height: 45px;
+          /* TEMA OSCURO: Fondo del footer */
+          background-color: #1D2226;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-shrink: 0; 
+          margin-top: auto; 
+        }
+
+        /* ANIMACIONES (Idénticas) */
+        .gallery-slide {
+          position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+          background-size: cover; background-position: center;
+          animation-duration: 12s; animation-iteration-count: infinite; animation-timing-function: ease-in-out; opacity: 0;
+        }
+        @keyframes cycle1 { 0% {opacity:1} 30% {opacity:1} 36% {opacity:0} 94% {opacity:0} 100% {opacity:1} }
+        @keyframes cycle2 { 0% {opacity:0} 30% {opacity:0} 36% {opacity:1} 63% {opacity:1} 69% {opacity:0} 100% {opacity:0} }
+        @keyframes cycle3 { 0% {opacity:0} 63% {opacity:0} 69% {opacity:1} 94% {opacity:1} 100% {opacity:0} }
+        .img-1 { animation-name: cycle1; opacity: 1; }
+        .img-2 { animation-name: cycle2; }
+        .img-3 { animation-name: cycle3; }
+      </style>
+
+      <div class="linkedin-card">
+        
+        <div class="header-section">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: #0a66c2; overflow: hidden; flex-shrink: 0; margin-right: 12px;">
+             <div style="width: 100%; height: 100%; 
+                          background-image: url('${profile_picture}'); 
+                          background-size: cover; background-position: center;">
+             </div>
+          </div>
+          
+          <div style="display: flex; flex-direction: column; line-height: 1.2;">
+            <span style="font-weight: 700; font-size: 15px; color: #FFFFFF;">${name}</span>
+            <span style="font-size: 13px; color: #9e9e9e;">${bio}</span>
+            <span style="font-size: 12px; color: #9e9e9e; margin-top: 2px;">${time} • 🌐</span>
+          </div>
+
+          <div style="margin-left: auto; width: 24px; height: 24px; flex-shrink: 0;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0a66c2" width="100%" height="100%">
+              <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.22-.44-2.12-1.54-2.12a1.6 1.6 0 00-1.58 1.14 2.17 2.17 0 00-.1 1.08V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.95 0 3.52 1.27 3.52 4v5.1z"/>
+            </svg>
+          </div>
+
+        </div>
+
+        <div class="text-section">
+          ${text}
+        </div>
+
+        <div class="gallery-container">
+            <div class="gallery-slide img-1" style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN89J+hHgAHDgJi0rFRDgAAAABJRU5ErkJggg==);"></div>
+            <div class="gallery-slide img-2" style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8FQDwAEnQGIVO32RQAAAABJRU5ErkJggg==);"></div>
+            <div class="gallery-slide img-3" style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mMU+89QDwAD3gGWA4sObwAAAABJRU5ErkJggg==)"></div>
+        </div>
+
+        <div class="footer-section">
+           <div style="display: flex; align-items: center; font-size: 12px; color: #9e9e9e;">
+             <span style="margin-right: 6px;">👍 ❤️ 👏</span>
+             <span>${reactions} </span>
+           </div>
+           <div style="font-size: 12px; color: #9e9e9e;">
+             ${comments}
+           </div>
+        </div>
+
+      </div>
+    </div>
+  </foreignObject>
+</svg>
