@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Post Extractor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0077b5 0%, #005885 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 30px;
+        }
+
+        .section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .section h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            border-left: 4px solid #0077b5;
+            padding-left: 12px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            resize: vertical;
+            transition: border-color 0.3s;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #0077b5;
+        }
+
+        .iframe-container {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            min-height: 400px;
+            background: #f8f9fa;
+            overflow: auto;
+            padding: 10px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #0077b5 0%, #005885 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 119, 181, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .results {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #0077b5;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .results h3 {
+            color: #0077b5;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .data-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            background: white;
+            border-radius: 6px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .data-item strong {
+            color: #333;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .data-item span {
+            color: #555;
+            word-wrap: break-word;
+        }
+
+        .error {
+            background: #fee;
+            color: #c33;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #c33;
+            margin-top: 15px;
+        }
+
+        .success {
+            background: #efe;
+            color: #3c3;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #3c3;
+            margin-top: 15px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 LinkedIn Post Extractor</h1>
+            <p>Pega el código del iframe de LinkedIn y extrae su información</p>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2>1. Pega la URL o código del iframe</h2>
+                <textarea id="iframeCode" placeholder='Opción 1: URL de la publicación
+https://www.linkedin.com/posts/usuario_activity-1234567890-abcd
+
+Opción 2: Código del iframe
+<iframe src="https://www.linkedin.com/embed/feed/update/..." height="..." width="..." frameborder="0" allowfullscreen="" title="..."></iframe>'></textarea>
+                
+                <div class="button-group">
+                    <button onclick="processInput()">🚀 Procesar</button>
+                    <button onclick="openInNewTab()">🔗 Abrir en Nueva Pestaña</button>
+                    <button onclick="clearAll()">🗑️ Limpiar</button>
+                </div>
+
+                <div id="message"></div>
+                
+                <div style="margin-top: 20px; padding: 15px; background: #fff3cd; border-left: 4px solid #ffc107; border-radius: 8px;">
+                    <strong>💡 Cómo obtener la URL:</strong>
+                    <ol style="margin: 10px 0 0 20px; line-height: 1.8;">
+                        <li>Ve a la publicación en LinkedIn</li>
+                        <li>Haz clic en los 3 puntos (...) de la publicación</li>
+                        <li>Selecciona "Copiar enlace de la publicación"</li>
+                        <li>Pégala aquí arriba</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>2. Vista previa del iframe</h2>
+                <div id="iframeContainer" class="iframe-container">
+                    <p style="color: #999; text-align: center; padding: 40px;">
+                        El iframe aparecerá aquí una vez lo renderices
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div style="padding: 0 30px 30px 30px;">
+            <div id="results"></div>
+        </div>
+    </div>
+
+    <script>
+        let currentIframe = null;
+        let currentUrl = null;
+
+        function processInput() {
+            const input = document.getElementById('iframeCode').value.trim();
+            const container = document.getElementById('iframeContainer');
+
+            if (!input) {
+                showMessage('Por favor, pega la URL o código del iframe primero', 'error');
+                return;
+            }
+
+            // Detectar si es una URL o código HTML
+            if (input.startsWith('http')) {
+                processUrl(input);
+            } else if (input.includes('<iframe')) {
+                processIframeCode(input);
+            } else {
+                showMessage('Por favor, pega una URL válida o código de iframe', 'error');
+            }
+        }
+
+        function processUrl(url) {
+            currentUrl = url;
+            const container = document.getElementById('iframeContainer');
+            
+            // Extraer información de la URL
+            const urlData = parseLinkedInUrl(url);
+        function extractData() {
+            showMessage('⚠️ Debido a las restricciones de seguridad de LinkedIn (X-Frame-Options), no es posible extraer el contenido del iframe programáticamente. La información mostrada proviene del análisis de la URL.', 'error');
+        }   const srcMatch = code.match(/src=["']([^"']+)["']/);
+            if (srcMatch) {
+                currentUrl = srcMatch[1];
+                const urlData = parseLinkedInUrl(currentUrl);
+                displayResults(urlData);
+            }
+            
+            // Intentar renderizar el iframe
+            container.innerHTML = code;
+            currentIframe = container.querySelector('iframe');
+
+            if (currentIframe) {
+                currentIframe.style.width = '100%';
+                currentIframe.style.minHeight = '400px';
+                currentIframe.style.border = 'none';
+                
+                container.innerHTML += `
+                    <p style="margin-top: 10px; color: #666; font-size: 0.9em;">
+                        ℹ️ Si el iframe muestra "conexión rechazada", LinkedIn está bloqueando el contenido.
+                    </p>
+                `;
+                
+                showMessage('Iframe procesado. Si no carga, LinkedIn está bloqueando el acceso por seguridad.', 'success');
+            }
+        }
+
+        function convertToEmbedUrl(url) {
+            // Convertir URL normal de LinkedIn a URL de embed
+            // https://www.linkedin.com/posts/usuario_activity-123456-abcd
+            // -> https://www.linkedin.com/embed/feed/update/urn:li:share:123456
+            
+            const activityMatch = url.match(/activity[:-](\d+)/);
+            if (activityMatch) {
+                const activityId = activityMatch[1];
+                return `https://www.linkedin.com/embed/feed/update/urn:li:share:${activityId}`;
+            }
+            
+            return null;
+        }
+
+        function parseLinkedInUrl(url) {
+            const data = {
+                'URL Original': url,
+                'Tipo': 'Publicación de LinkedIn',
+            };
+
+            // Extraer nombre de usuario
+            const userMatch = url.match(/linkedin\.com\/(?:posts|in)\/([^\/\?_]+)/);
+            if (userMatch) {
+                data['Usuario'] = userMatch[1];
+                data['Perfil del Usuario'] = `https://www.linkedin.com/in/${userMatch[1]}`;
+            }
+
+            // Extraer ID de actividad
+            const activityMatch = url.match(/activity[:-](\d+)/);
+            if (activityMatch) {
+                data['Activity ID'] = activityMatch[1];
+                data['URN'] = `urn:li:share:${activityMatch[1]}`;
+                data['URL de Embed'] = `https://www.linkedin.com/embed/feed/update/urn:li:share:${activityMatch[1]}`;
+            }
+
+            // Extraer parámetros adicionales
+            const urlObj = new URL(url);
+            if (urlObj.searchParams.toString()) {
+                data['Parámetros'] = urlObj.searchParams.toString();
+            }
+
+            return data;
+        }
+
+        function openInNewTab() {
+            if (currentUrl) {
+                window.open(currentUrl, '_blank');
+                showMessage('Publicación abierta en nueva pestaña. Puedes copiar la información manualmente desde ahí.', 'success');
+            } else {
+                showMessage('Primero procesa una URL o iframe', 'error');
+            }
+        }
+
+        function extractData() {
+            const messageDiv = document.getElementById('message');
+            const resultsDiv = document.getElementById('results');
+
+            if (!currentIframe) {
+                showMessage('Primero debes renderizar el iframe', 'error');
+                return;
+            }
+
+            try {
+                // Intentar acceder al contenido del iframe
+                const iframeDoc = currentIframe.contentDocument || currentIframe.contentWindow.document;
+                
+                if (!iframeDoc) {
+                    showMessage('No se puede acceder al contenido del iframe. Esto puede deberse a restricciones de CORS de LinkedIn.', 'error');
+                    return;
+                }
+
+                // Extraer información del iframe
+                const data = extractPostData(iframeDoc);
+                displayResults(data);
+                showMessage('¡Datos extraídos exitosamente!', 'success');
+
+            } catch (error) {
+                console.error('Error al acceder al iframe:', error);
+                showMessage('Error: No se puede acceder al contenido del iframe debido a restricciones de seguridad (CORS). LinkedIn bloquea el acceso programático al contenido de sus iframes por seguridad.', 'error');
+                
+                // Mostrar información alternativa
+                const alternativeData = extractIframeAttributes();
+                displayResults(alternativeData);
+            }
+        }
+
+        function extractPostData(doc) {
+            // Intentar extraer datos del documento del iframe
+            const data = {
+                url: currentIframe.src || 'No disponible',
+                title: currentIframe.title || 'No disponible',
+                texto: '',
+                autor: '',
+                fecha: '',
+                likes: '',
+                comentarios: '',
+                html_completo: doc.body ? doc.body.innerHTML : 'No accesible'
+            };
+
+            // Intentar buscar selectores comunes de LinkedIn
+            try {
+                const textElement = doc.querySelector('.feed-shared-text, .break-words, [data-test-id="post-text"]');
+                if (textElement) data.texto = textElement.innerText;
+
+                const authorElement = doc.querySelector('.feed-shared-actor__name, .update-components-actor__name');
+                if (authorElement) data.autor = authorElement.innerText;
+
+                const dateElement = doc.querySelector('.feed-shared-actor__sub-description time, time');
+                if (dateElement) data.fecha = dateElement.innerText;
+
+                const likesElement = doc.querySelector('[data-test-id="social-actions__reaction-count"]');
+                if (likesElement) data.likes = likesElement.innerText;
+
+                const commentsElement = doc.querySelector('[data-test-id="social-actions__comment-count"]');
+                if (commentsElement) data.comentarios = commentsElement.innerText;
+            } catch (e) {
+                console.log('Error extrayendo selectores específicos:', e);
+            }
+
+            return data;
+        }
+
+        function extractIframeAttributes() {
+            // Extraer solo atributos del iframe (esto sí funciona)
+            return {
+                'URL del iframe': currentIframe.src || 'No disponible',
+                'Título': currentIframe.title || 'No disponible',
+                'Ancho': currentIframe.width || 'Auto',
+                'Alto': currentIframe.height || 'Auto',
+                'Nota': 'Debido a restricciones de CORS, solo se pueden extraer los atributos del iframe. Para extraer el contenido completo, necesitarías una extensión de navegador o acceso directo a la API de LinkedIn.'
+            };
+        }
+
+        function displayResults(data) {
+            const resultsDiv = document.getElementById('results');
+            
+            let html = '<div class="results"><h3>📊 Datos Extraídos</h3>';
+            
+            for (const [key, value] of Object.entries(data)) {
+                if (key !== 'html_completo' || value === 'No accesible') {
+                    html += `
+                        <div class="data-item">
+                            <strong>${key}</strong>
+                            <span>${value || 'No encontrado'}</span>
+                        </div>
+                    `;
+                }
+            }
+            
+            // Agregar JSON para copiar
+            html += `
+                <div class="data-item">
+                    <strong>JSON (para copiar)</strong>
+                    <textarea readonly style="width: 100%; min-height: 100px; margin-top: 10px;">${JSON.stringify(data, null, 2)}</textarea>
+                </div>
+            `;
+            
+            html += '</div>';
+            resultsDiv.innerHTML = html;
+        }
+
+        function showMessage(text, type) {
+            const messageDiv = document.getElementById('message');
+            messageDiv.className = type;
+            messageDiv.textContent = text;
+            messageDiv.style.display = 'block';
+        }
+
+        function clearAll() {
+            document.getElementById('iframeCode').value = '';
+            document.getElementById('iframeContainer').innerHTML = '<p style="color: #999; text-align: center; padding: 40px;">El iframe aparecerá aquí una vez lo renderices</p>';
+            document.getElementById('results').innerHTML = '';
+            document.getElementById('message').innerHTML = '';
+            currentIframe = null;
+        }
+
+        // Ejemplo de código de iframe para probar
+        const exampleCode = `<!-- Ejemplo: 
+<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:1234567890" height="500" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+-->`;
+    </script>
+</body>
+</html>
