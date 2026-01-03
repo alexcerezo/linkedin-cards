@@ -73,6 +73,20 @@
           margin-top: auto; 
         }
 
+        .name-text {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 200px;
+        }
+
+        .bio-text {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 200px;
+        }
+
         /* ANIMACIONES */
         .gallery-slide {
           position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -97,9 +111,9 @@
              </div>
           </div>
           
-          <div style="display: flex; flex-direction: column; line-height: 1.2;">
-            <span style="font-weight: 700; font-size: 15px; color: #191919;">${name}</span>
-            <span style="font-size: 13px; color: #666;">${bio}</span>
+          <div style="display: flex; flex-direction: column; line-height: 1.2; min-width: 0; flex: 1;">
+            <span class="name-text" style="font-weight: 700; font-size: 15px; color: #191919;">${name}</span>
+            <span class="bio-text" style="font-size: 13px; color: #666;">${bio}</span>
             <span style="font-size: 12px; color: #666; margin-top: 2px;">${time} • 🌐</span>
           </div>
 
