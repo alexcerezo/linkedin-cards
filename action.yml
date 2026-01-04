@@ -2,7 +2,7 @@ name: 'LinkedIn Cards Generator'
 description: 'Automatically generate beautiful SVG cards from your LinkedIn posts'
 author: 'Alejandro Cerezo'
 branding:
-  icon: 'linkedin'
+  icon: 'credit-card'
   color: 'blue'
 
 inputs:
