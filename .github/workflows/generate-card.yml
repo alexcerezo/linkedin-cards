@@ -27,9 +27,9 @@ jobs:
       - name: Auto-generate LinkedIn cards
         env:
           APIFY_API_TOKEN: ${{ secrets.APIFY_API_TOKEN }}
-          LINKEDIN_USERNAME: ${{ secrets.LINKEDIN_USERNAME }}
-          MAX_CARDS_TO_GENERATE: ${{ secrets.MAX_CARDS_TO_GENERATE }}
-          LANGUAGE: ${{ secrets.LANGUAGE }}
+          LINKEDIN_USERNAME: ${{ vars.LINKEDIN_USERNAME }}
+          MAX_CARDS_TO_GENERATE: ${{ vars.MAX_CARDS_TO_GENERATE }}
+          LANGUAGE: ${{ vars.LANGUAGE }}
         run: node scripts/auto-generate.js
       
       - name: Configure Git

@@ -22,13 +22,21 @@ git clone https://github.com/alexcerezo/linkedin-cards.git
 cd linkedin-cards
 ```
 
-### 2. Configure Repository Secrets
+### 2. Configure Repository Secrets and Variables
 
-Go to your repository Settings → Secrets and variables → Actions → New repository secret and add:
+**Create a Secret:**
+
+Go to Settings → Secrets and variables → Actions → Secrets → New repository secret:
 
 | Secret Name | Description | Example |
-|------------|-------------|---------|
 | `APIFY_API_TOKEN` | Your Apify API token | `apify_api_xxxxx` |
+
+**Create Variables:**
+
+Go to Settings → Secrets and variables → Actions → Variables → New repository variable:
+
+| Variable Name | Description | Example |
+|--------------|-------------|---------|
 | `LINKEDIN_USERNAME` | Your LinkedIn username | `johndoe` |
 | `MAX_CARDS_TO_GENERATE` | Maximum number of cards to display | `4` |
 | `LANGUAGE` | Card language (`en`, `es` ...) | `en` |
@@ -93,7 +101,7 @@ Currently supported languages:
 - English (`en`)
 - Spanish (`es`)
 
-To change the language, update the `LANGUAGE` secret in your repository settings.
+To change the language, update the `LANGUAGE` variable in your repository settings.
 
 ### Adding New Languages
 
@@ -148,7 +156,7 @@ Edit these files to customize the card appearance.
 
 ### Maximum Cards
 
-Change `MAX_CARDS_TO_GENERATE` secret to control how many cards are displayed (recommended: 4-6).
+Change `MAX_CARDS_TO_GENERATE` variable to control how many cards are displayed (recommended: 4-6).
 
 ## Example
 
