@@ -118,7 +118,7 @@ const client = new ApifyClient({
 const input = {
   "username": process.env.LINKEDIN_USERNAME,
   "page_number": 1,
-  "limit": 100
+  "limit": 25
 };
 
 function filterOwnPosts(items, username) {
