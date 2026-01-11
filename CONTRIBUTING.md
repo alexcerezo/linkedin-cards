@@ -49,7 +49,8 @@ There are many ways to contribute:
 - Node.js >= 18
 - npm (comes with Node.js)
 - Git
-- An Apify account (free tier available at [apify.com](https://apify.com))
+- An Apify account with API token (required for fetching LinkedIn posts - free tier available at [apify.com](https://apify.com))
+  - **Note**: The Apify API token is needed to fetch real LinkedIn posts. Without it, you can still work on templates, translations, and other features using mock data.
 
 ### Installation
 
@@ -102,8 +103,10 @@ linkedin-cards/
 1. **Update your fork** with the latest changes from main:
    ```bash
    git fetch origin
-   git rebase origin/main
+   git merge origin/main
    ```
+   
+   *Advanced: You can also use `git rebase origin/main` if you're comfortable with rebasing.*
 
 2. **Make your changes** following the [coding guidelines](#coding-guidelines)
 
