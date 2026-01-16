@@ -58,7 +58,7 @@
           border: 1px solid #3E4448;
           border-radius: 8px;
           flex-shrink: 0;
-          height: 220px;
+          height: 225px;
           box-sizing: border-box;
         }
 
