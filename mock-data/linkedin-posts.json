@@ -1152,5 +1152,87 @@
       }
     },
     "pagination_token": "dXJuOmxpOmFjdGl2aXR5OjcyNTQwNTEzNDQ4NTUwMzU5MDYtMTcyOTUwMDYxNDMzOQ=="
+  },
+  {
+    "urn": {
+      "activity_urn": "9999999999999999999",
+      "share_urn": "9999999999999999998",
+      "ugcPost_urn": null
+    },
+    "full_urn": "urn:li:activity:9999999999999999999",
+    "posted_at": {
+      "date": "2026-01-19 00:00:00",
+      "relative": "a few seconds ago • Visible to anyone on or off LinkedIn",
+      "timestamp": 1768030000000
+    },
+    "text": "",
+    "url": "https://www.linkedin.com/posts/alexcerezocontreras_simple-repost-example-activity-9999999999999999999",
+    "post_type": "repost",
+    "author": {
+      "first_name": "Alejandro",
+      "last_name": "Cerezo Contreras",
+      "headline": "Software Engineer | 🤖 Squad Manager at Outlier | 🐙 Co-organizer of GitHub Community Spain | 🧠 AI Specialist | 🌐 DevOps",
+      "username": "alexcerezocontreras",
+      "profile_url": "https://www.linkedin.com/in/alexcerezocontreras?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAACYEB2gB1mgVEI0n35CVvEvTyPJuSvPEEJ4",
+      "profile_picture": "https://media.licdn.com/dms/image/v2/D4E03AQEEU9p_or8otg/profile-displayphoto-crop_800_800/B4EZtRqeRnIsAY-/0/1766601648519?e=1770249600&v=beta&t=RBazk0dZC_VfK84eD1-SQIrEVT4bLnvTQM1uoHeY1Bc"
+    },
+    "stats": {
+      "total_reactions": 0,
+      "like": 0,
+      "support": 0,
+      "love": 0,
+      "insight": 0,
+      "celebrate": 0,
+      "funny": 0,
+      "comments": 0,
+      "reposts": 0
+    },
+    "reshared_post": {
+      "urn": {
+        "activity_urn": "7413917607571017728",
+        "share_urn": "7413917606266679297",
+        "ugcPost_urn": null
+      },
+      "full_urn": "urn:li:activity:7413917607571017728",
+      "posted_at": {
+        "date": "2026-01-05 13:21:41",
+        "relative": "1 week ago • Visible to anyone on or off LinkedIn",
+        "timestamp": 1767615701573
+      },
+      "text": "¿Te perdiste mi post de ayer? No te preocupes, LinkedIn Cards ya ha hecho el trabajo por mí. 🚀\n\nComo prometí ayer, mi actividad de LinkedIn ya es visible directamente en mi perfil de GitHub. Gracias a LinkedIn Cards, mi README ha pasado de ser un texto estático a un escaparate dinámico que se actualiza solo cada día.\n\n¿Qué es exactamente LinkedIn Cards? Es una herramienta Open Source diseñada para desarrolladores que quieren potenciar su marca personal. Permite conectar tus mejores publicaciones de LinkedIn a tu GitHub mediante tarjetas visuales automáticas, gestionadas íntegramente por GitHub Actions.\n\nPuedes configurar tus LinkedIn Cards aquí: 🔗\nhttps://lnkd.in/ek7q9sHg\n\nAsí que si te perdiste la oportunidad de aparecer en mi perfil de GitHub ayer. ¡Aún estás a tiempo! ⏳ Como las tarjetas se actualizan automáticamente cada día, si reaccionas o comentas en esta publicación, tu interacción aparecerá en mi README mañana mismo.",
+      "url": "https://www.linkedin.com/posts/alexcerezocontreras_te-perdiste-mi-post-de-ayer-no-te-preocupes-activity-7413917607571017728-UTf6?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAGDsOLIBleMMU19Ynwm_l0TMZPXbPSsSCPU",
+      "post_type": "regular",
+      "author": {
+        "first_name": "Alejandro",
+        "last_name": "Cerezo Contreras",
+        "headline": "Software Engineer | 🤖 Squad Manager at Outlier | 🐙 Co-organizer of GitHub Community Spain | 🧠 AI Specialist | 🌐 DevOps",
+        "username": "alexcerezocontreras",
+        "profile_url": "https://www.linkedin.com/in/alexcerezocontreras?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAACYEB2gB1mgVEI0n35CVvEvTyPJuSvPEEJ4",
+        "profile_picture": "https://media.licdn.com/dms/image/v2/D4E03AQEEU9p_or8otg/profile-displayphoto-crop_800_800/B4EZtRqeRnIsAY-/0/1766601648519?e=1770249600&v=beta&t=RBazk0dZC_VfK84eD1-SQIrEVT4bLnvTQM1uoHeY1Bc"
+      },
+      "stats": {
+        "total_reactions": 10,
+        "like": 7,
+        "support": 0,
+        "love": 1,
+        "insight": 2,
+        "celebrate": 0,
+        "funny": 0,
+        "comments": 0,
+        "reposts": 1
+      },
+      "media": {
+        "type": "image",
+        "url": "https://media.licdn.com/dms/image/v2/D4E22AQHqhpr69YPR-Q/feedshare-shrink_2048_1536/B4EZuOGxpQKkA0-/0/1767615700017?e=1770249600&v=beta&t=Y7JzgPprcoZBsqKAKrGUzodB54iayIko46QsoyS2Etg",
+        "images": [
+          {
+            "url": "https://media.licdn.com/dms/image/v2/D4E22AQHqhpr69YPR-Q/feedshare-shrink_2048_1536/B4EZuOGxpQKkA0-/0/1767615700017?e=1770249600&v=beta&t=Y7JzgPprcoZBsqKAKrGUzodB54iayIko46QsoyS2Etg",
+            "width": 1049,
+            "height": 591
+          }
+        ]
+      }
+    },
+    "pagination_token": "dXJuOmxpOmFjdGl2aXR5OjcyNTQwNTEzNDQ4NTUwMzU5MDYtMTcyOTUwMDYxNDMzOQ=="
   }
 ]
