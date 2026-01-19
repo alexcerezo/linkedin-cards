@@ -1,0 +1,206 @@
+<svg fill="none" viewBox="0 0 320 460" width="320" height="460" xmlns="http://www.w3.org/2000/svg">
+  
+  <foreignObject width="100%" height="100%">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif; height: 100%; color: #FFFFFF; display: flex; align-items: center; justify-content: center;">
+      
+      <style>
+        .linkedin-card {
+          --card-width: 300px;
+          --card-padding: 15px;
+          --line-height: 20px;
+          
+          display: flex;
+          flex-direction: column;
+          
+          /* TEMA OSCURO */
+          background: #1D2226;
+          border: 1px solid #2F343A;
+          border-radius: 8px;
+          overflow: hidden;
+          width: var(--card-width);
+          height: 420px; 
+          box-sizing: border-box;
+          
+          box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .header-section {
+          padding: var(--card-padding) var(--card-padding) 0 var(--card-padding);
+          display: flex;
+          align-items: center; 
+          flex-shrink: 0; 
+        }
+
+        .repost-indicator {
+          padding: 0 var(--card-padding);
+          margin-top: 8px;
+          display: flex;
+          align-items: center;
+          font-size: 12px;
+          color: #9e9e9e;
+          flex-shrink: 0;
+        }
+
+        .repost-icon {
+          width: 16px;
+          height: 16px;
+          margin-right: 6px;
+          flex-shrink: 0;
+        }
+
+        .shared-content {
+          margin: 10px var(--card-padding) 0 var(--card-padding);
+          padding: 12px;
+          /* TEMA OSCURO: Shared content background - same as card */
+          background: #1D2226;
+          border: 1px solid #3E4448;
+          border-radius: 8px;
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          overflow: hidden;
+        }
+
+        .shared-header {
+          display: flex;
+          align-items: center;
+          margin-bottom: 8px;
+          flex-shrink: 0;
+        }
+
+        .shared-avatar {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          background: #0a66c2;
+          overflow: hidden;
+          flex-shrink: 0;
+          margin-right: 10px;
+        }
+
+        .shared-text {
+          font-size: 13px;
+          /* TEMA OSCURO: Shared text color */
+          color: #e4e6eb;
+          line-height: 18px;
+          max-height: calc(18px * 12);
+          display: -webkit-box;
+          -webkit-line-clamp: 12;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          flex: 1;
+        }
+
+        .footer-section {
+          padding: 0 var(--card-padding);
+          height: 45px;
+          /* TEMA OSCURO: Footer background */
+          background-color: #1D2226;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-shrink: 0; 
+          margin-top: auto; 
+        }
+
+        .name-text {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 200px;
+        }
+
+        .bio-text {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 200px;
+        }
+
+        .shared-name {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 180px;
+          font-weight: 600;
+          font-size: 13px;
+          /* TEMA OSCURO: Shared name color */
+          color: #e4e6eb;
+        }
+
+        .shared-bio {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-width: 180px;
+          font-size: 12px;
+          /* TEMA OSCURO: Shared bio color */
+          color: #b0b3b8;
+        }
+      </style>
+
+      <div class="linkedin-card">
+        
+        <div class="header-section">
+          <div style="width: 48px; height: 48px; border-radius: 50%; background: #0a66c2; overflow: hidden; flex-shrink: 0; margin-right: 12px;">
+             <div style="width: 100%; height: 100%; 
+                          background-image: url('${profile_picture}'); 
+                          background-size: cover; background-position: center;">
+             </div>
+          </div>
+          
+          <div style="display: flex; flex-direction: column; line-height: 1.2; min-width: 0; flex: 1;">
+            <span class="name-text" style="font-weight: 700; font-size: 15px; color: #e4e6eb;">${name}</span>
+            <span class="bio-text" style="font-size: 13px; color: #b0b3b8;">${bio}</span>
+            <span style="font-size: 12px; color: #9e9e9e; margin-top: 2px;">${time} • 🌐</span>
+          </div>
+
+          <div style="margin-left: auto; width: 24px; height: 24px; flex-shrink: 0;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0a66c2" width="100%" height="100%">
+              <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.22-.44-2.12-1.54-2.12a1.6 1.6 0 00-1.58 1.14 2.17 2.17 0 00-.1 1.08V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.95 0 3.52 1.27 3.52 4v5.1z"/>
+            </svg>
+          </div>
+
+        </div>
+
+        <div class="repost-indicator">
+          <svg class="repost-icon" viewBox="0 0 24 24" fill="#9e9e9e" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13.96 5H6c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V9.37c0-.8-.47-1.52-1.2-1.83l-4.84-2.04zM7 15l4.5-6 3.5 4.51 2.5-3.01L21 15H7zm10-8.5c0-.83-.67-1.5-1.5-1.5S14 5.67 14 6.5 14.67 8 15.5 8 17 7.33 17 6.5z"/>
+            <path d="M2 7h2v10H2z"/>
+          </svg>
+          <span>${name} shared this</span>
+        </div>
+
+        <div class="shared-content">
+          <div class="shared-header">
+            <div class="shared-avatar">
+              <div style="width: 100%; height: 100%; 
+                          background-image: url('${original_profile_picture}'); 
+                          background-size: cover; background-position: center;">
+              </div>
+            </div>
+            <div style="display: flex; flex-direction: column; line-height: 1.2; min-width: 0; flex: 1;">
+              <span class="shared-name">${original_name}</span>
+              <span class="shared-bio">${original_bio}</span>
+            </div>
+          </div>
+          <div class="shared-text">
+            ${original_text}
+          </div>
+        </div>
+
+        <div class="footer-section">
+           <div style="display: flex; align-items: center; font-size: 12px; color: #9e9e9e;">
+             <span style="margin-right: 6px;">👍 ❤️ 👏</span>
+             <span>${reactions}</span>
+           </div>
+           <div style="font-size: 12px; color: #9e9e9e;">
+             ${comments}
+           </div>
+        </div>
+
+      </div>
+    </div>
+  </foreignObject>
+</svg>

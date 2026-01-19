@@ -33,8 +33,12 @@ dotenv.config();
         const useMockData = process.env.USE_MOCK_DATA === 'true';
         // TODO: Make this configurable
         const includeQuotes = 'true';
+        const includeSimpleReposts = process.env.INCLUDE_SIMPLE_REPOSTS === 'true';
         const items = await fetchLinkedInPosts(client, process.env.LINKEDIN_USERNAME, useMockData);
-        const ownPosts = filterOwnPosts(items, process.env.LINKEDIN_USERNAME, { includeQuotes });
+        const ownPosts = filterOwnPosts(items, process.env.LINKEDIN_USERNAME, { 
+            includeQuotes, 
+            isSimpleRepost: includeSimpleReposts 
+        });
         const maxCards = parseInt(process.env.MAX_CARDS_TO_GENERATE || '4', 10);
         const postsToGenerate = ownPosts.slice(0, maxCards);
         
