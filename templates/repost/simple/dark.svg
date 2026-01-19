@@ -158,7 +158,7 @@
         </div>
 
         <div class="repost-indicator">
-          <span>${name} ${repost}</span>
+          <span>${name} ${reposts}</span>
         </div>
 
         <div class="shared-content">
