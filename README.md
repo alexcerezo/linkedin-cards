@@ -4,32 +4,18 @@ Automatically generate beautiful LinkedIn post cards and display them in your Gi
 
 <!-- BEGIN LINKEDIN-CARDS -->
 <p align="center">
-  <a href="https://www.linkedin.com/posts/alexcerezocontreras_fundamentos-de-github-activity-7410580273488138241-sIZP?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAGDzZvgBnXqsXb6EUzbmoDxCnI-PyrDZsvM">
+  <a href="https://www.linkedin.com/posts/javiertorralbocortes_a-falta-de-menos-de-una-semana-para-mi-charla-activity-7417475807884779520-jsDx?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAGLXW_oBmL40e0Yr8nStfKZeMgUxnf0LDEY">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/alexcerezo/alexcerezo/blob/main/cards/1766820019123-dark.svg">
-      <source media="(prefers-color-scheme: light)" srcset="https://github.com/alexcerezo/alexcerezo/blob/main/cards/1766820019123-light.svg">
-      <img alt="LinkedIn Card 1" src="https://github.com/alexcerezo/alexcerezo/blob/main/cards/1766820019123-light.svg" width="320px">
+      <source media="(prefers-color-scheme: dark)" srcset="cards/1768481442272-dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset="cards/1768481442272-light.svg">
+      <img alt="LinkedIn Card 1" src="cards/1768481442272-light.svg" width="320px">
     </picture>
   </a>
-  <a href="https://www.linkedin.com/posts/alexcerezocontreras_gsec-activity-7404566046545903616-oy71?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAGDzZvgBnXqsXb6EUzbmoDxCnI-PyrDZsvM">
+  <a href="https://www.linkedin.com/posts/javiertorralbocortes_backend-dotnet-internship-activity-7415042276982239232-Yz4j?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAGLXW_oBmL40e0Yr8nStfKZeMgUxnf0LDEY">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/alexcerezo/alexcerezo/blob/main/cards/1765386115681-dark.svg">
-      <source media="(prefers-color-scheme: light)" srcset="https://github.com/alexcerezo/alexcerezo/blob/main/cards/1765386115681-light.svg">
-      <img alt="LinkedIn Card 2" src="https://github.com/alexcerezo/alexcerezo/blob/main/cards/1765386115681-light.svg" width="320px">
-    </picture>
-  </a>
-  <a href="https://www.linkedin.com/posts/alexcerezocontreras_hoy-he-tenido-la-suerte-de-asistir-al-primer-activity-7377475497473146880-MYnC?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAGDzZvgBnXqsXb6EUzbmoDxCnI-PyrDZsvM">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/alexcerezo/alexcerezo/blob/main/cards/1758927225464-dark.svg">
-      <source media="(prefers-color-scheme: light)" srcset="https://github.com/alexcerezo/alexcerezo/blob/main/cards/1758927225464-light.svg">
-      <img alt="LinkedIn Card 3" src="https://github.com/alexcerezo/alexcerezo/blob/main/cards/1758927225464-light.svg" width="320px">
-    </picture>
-  </a>
-  <a href="https://www.linkedin.com/posts/alexcerezocontreras_hoy-a-tocado-asistir-a-la-charla-de-azurem%C3%A1laga-activity-7374160674068877312-biYP?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAGDzZvgBnXqsXb6EUzbmoDxCnI-PyrDZsvM">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/alexcerezo/alexcerezo/blob/main/cards/1758136909978-dark.svg">
-      <source media="(prefers-color-scheme: light)" srcset="https://github.com/alexcerezo/alexcerezo/blob/main/cards/1758136909978-light.svg">
-      <img alt="LinkedIn Card 4" src="https://github.com/alexcerezo/alexcerezo/blob/main/cards/1758136909978-light.svg" width="320px">
+      <source media="(prefers-color-scheme: dark)" srcset="cards/1767887767926-dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset="cards/1767887767926-light.svg">
+      <img alt="LinkedIn Card 2" src="cards/1767887767926-light.svg" width="320px">
     </picture>
   </a>
 </p>
@@ -158,6 +144,7 @@ The included workflow runs automatically. You can also trigger it manually from 
 - `es` - Spanish  
 - `fr` - French
 - `de` - German
+- `ar` - Arabic
 
 ---
 
@@ -178,7 +165,7 @@ APIFY_API_TOKEN=your_apify_api_token_here
 # Variables - Can be public
 LINKEDIN_USERNAME=alexcerezocontreras
 MAX_CARDS_TO_GENERATE=25
-LANGUAGE=es  # Options: en, es, fr, de
+LANGUAGE=es  # Options: en, es, fr, de, ar
 INCLUDE_REPOSTS=true # Set to 'true' to include reposts
 
 # Development/Testing
