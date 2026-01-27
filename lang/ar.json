@@ -1,0 +1,22 @@
+{
+  "second": "ثانية",
+  "seconds": "ثواني",
+  "minute": "دقيقة",
+  "minutes": "دقائق",
+  "hour": "ساعة",
+  "hours": "ساعات",
+  "day": "يوم",
+  "days": "أيام",
+  "week": "أسبوع",
+  "weeks": "أسابيع",
+  "month": "شهر",
+  "months": "أشهر",
+  "year": "سنة",
+  "years": "سنوات",
+  "ago": "منذ",
+  "comment": "تعليق",
+  "comments": "تعليقات",
+  "reposts": "أعاد نشر هذا",
+  "a few": "قليل",
+  "invertOrder": true
+}
